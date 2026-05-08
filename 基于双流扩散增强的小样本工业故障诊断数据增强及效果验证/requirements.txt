@@ -1,0 +1,13 @@
+numpy
+scipy
+pandas
+scikit-learn
+matplotlib
+seaborn
+pywavelets
+tqdm
+einops
+torch
+torchvision
+torchaudio
+pyyaml

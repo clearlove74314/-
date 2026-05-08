@@ -1,0 +1,61 @@
+ablation:
+  experiments:
+    - name: "Single DDPM Linear"
+      config:
+        use_feature_stream: false
+        use_semantic_stream: false
+        use_cross_attention: false
+        use_freq_loss: false
+        noise_schedule: linear
+    
+    - name: "Single DDPM Cosine"
+      config:
+        use_feature_stream: false
+        use_semantic_stream: false
+        use_cross_attention: false
+        use_freq_loss: false
+        noise_schedule: cosine
+    
+    - name: "Multi-scale Feature"
+      config:
+        use_feature_stream: true
+        use_semantic_stream: false
+        use_cross_attention: false
+        use_freq_loss: false
+        noise_schedule: cosine
+    
+    - name: "Add Semantic Stream"
+      config:
+        use_feature_stream: true
+        use_semantic_stream: true
+        use_cross_attention: false
+        use_freq_loss: false
+        noise_schedule: cosine
+    
+    - name: "Add Cross Attention"
+      config:
+        use_feature_stream: true
+        use_semantic_stream: true
+        use_cross_attention: true
+        use_freq_loss: false
+        noise_schedule: cosine
+    
+    - name: "Full DSDM"
+      config:
+        use_feature_stream: true
+        use_semantic_stream: true
+        use_cross_attention: true
+        use_freq_loss: true
+        noise_schedule: cosine
+
+model:
+  name: DSDM
+  input_length: 2048
+  num_classes: 5
+  feature_dim: 256
+  semantic_dim: 256
+
+train:
+  batch_size: 32
+  epochs: 300
+  lr: 0.0001
